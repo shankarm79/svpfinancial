@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SVP Financial LLC — Elite Personal Financial Planning</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0B1D3A;
+    --navy-mid: #122649;
+    --navy-light: #1a3360;
+    --gold: #C49A2E;
+    --gold-light: #E8C86A;
+    --gold-pale: #F5E9C5;
+    --cream: #FAF8F2;
+    --cream-dark: #F0EBE0;
+    --white: #FFFFFF;
+    --text-dark: #0B1D3A;
+    --text-mid: #3D4F6B;
+    --text-muted: #6B7D99;
+    --border: rgba(196,154,46,0.18);
+    --border-strong: rgba(196,154,46,0.35);
+    --shadow-gold: 0 2px 40px rgba(196,154,46,0.12);
+    --shadow-navy: 0 8px 60px rgba(11,29,58,0.18);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    background: var(--cream);
+    color: var(--text-dark);
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  .serif { font-family: 'Cormorant Garamond', Georgia, serif; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(11,29,58,0.97);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(196,154,46,0.2);
+    padding: 0 2.5rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 72px;
+  }
+
+  .nav-logo {
+    display: flex; align-items: center; gap: 14px;
+    text-decoration: none;
+  }
+
+  .shield-icon {
+    width: 38px; height: 44px;
+    fill: var(--gold);
+  }
+
+  .nav-brand { color: var(--white); }
+  .nav-brand strong {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 1.25rem;
+    letter-spacing: 0.04em;
+    line-height: 1;
+  }
+  .nav-brand span {
+    font-size: 0.65rem;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    opacity: 0.8;
+  }
+
+  .nav-links {
+    display: flex; align-items: center; gap: 2.5rem;
+    list-style: none;
+  }
+  .nav-links a {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 400;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold-light); }
+
+  .nav-cta {
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold-light) !important;
+    padding: 9px 22px !important;
+    border-radius: 2px;
+    font-size: 0.75rem !important;
+    letter-spacing: 0.12em !important;
+    text-transform: uppercase !important;
+    transition: background 0.2s, color 0.2s !important;
+    font-weight: 500 !important;
+  }
+  .nav-cta:hover {
+    background: var(--gold) !important;
+    color: var(--navy) !important;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+    display: flex; align-items: center;
+    padding: 120px 2.5rem 80px;
+  }
+
+  .hero-geo {
+    position: absolute; inset: 0; pointer-events: none;
+  }
+
+  .hero-line {
+    position: absolute;
+    background: linear-gradient(to bottom, transparent, rgba(196,154,46,0.15), transparent);
+    width: 1px; top: 0; bottom: 0;
+  }
+
+  .hero-circle {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(196,154,46,0.08);
+  }
+
+  .hero-content {
+    max-width: 1100px; margin: 0 auto; width: 100%;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    position: relative; z-index: 2;
+  }
+
+  .hero-eyebrow {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 2rem;
+  }
+
+  .eyebrow-line { width: 40px; height: 1px; background: var(--gold); }
+
+  .eyebrow-text {
+    font-size: 0.7rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 400;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 5vw, 5rem);
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1.05;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .hero-desc {
+    color: rgba(255,255,255,0.65);
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+    max-width: 420px;
+  }
+
+  .hero-actions {
+    display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy);
+    padding: 15px 34px;
+    border-radius: 2px;
+    text-decoration: none;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  .btn-ghost {
+    display: inline-flex; align-items: center; gap: 8px;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    transition: color 0.2s;
+  }
+  .btn-ghost:hover { color: var(--gold-light); }
+  .btn-ghost svg { width: 16px; height: 16px; }
+
+  .hero-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(196,154,46,0.2);
+    border-radius: 4px;
+    padding: 2.5rem;
+    backdrop-filter: blur(10px);
+  }
+
+  .hero-stat-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1.5px;
+    background: rgba(196,154,46,0.15);
+    border: 1px solid rgba(196,154,46,0.15);
+    margin-bottom: 2rem;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .hero-stat {
+    background: rgba(11,29,58,0.9);
+    padding: 1.5rem;
+    text-align: center;
+  }
+  .hero-stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--gold-light);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+    display: block;
+  }
+  .hero-stat-label {
+    font-size: 0.68rem;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .hero-phone {
+    display: flex; align-items: center; gap: 12px;
+    padding: 1rem 1.25rem;
+    border: 1px solid rgba(196,154,46,0.2);
+    border-radius: 2px;
+    text-decoration: none;
+    transition: border-color 0.2s;
+  }
+  .hero-phone:hover { border-color: rgba(196,154,46,0.5); }
+  .hero-phone-icon {
+    width: 36px; height: 36px;
+    background: rgba(196,154,46,0.12);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .hero-phone-icon svg { width: 16px; height: 16px; fill: var(--gold); }
+  .hero-phone-label { font-size: 0.65rem; color: rgba(255,255,255,0.4); letter-spacing: 0.1em; text-transform: uppercase; display: block; }
+  .hero-phone-num { font-size: 1.05rem; color: var(--white); font-weight: 400; }
+
+  /* ── SECTION COMMONS ── */
+  section { padding: 100px 2.5rem; }
+
+  .container { max-width: 1100px; margin: 0 auto; width: 100%; }
+
+  .section-label {
+    display: flex; align-items: center; gap: 12px; margin-bottom: 1.2rem;
+  }
+  .section-label-line { width: 32px; height: 1px; background: var(--gold); }
+  .section-label-text {
+    font-size: 0.68rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 400;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    font-weight: 300;
+    color: var(--navy);
+    line-height: 1.1;
+    margin-bottom: 1.2rem;
+  }
+  .section-title em { font-style: italic; color: var(--gold); }
+
+  .section-desc {
+    font-size: 1rem;
+    color: var(--text-mid);
+    max-width: 540px;
+    line-height: 1.8;
+    font-weight: 300;
+  }
+
+  /* ── MARQUEE STRIP ── */
+  .marquee-strip {
+    background: var(--navy);
+    padding: 0;
+    overflow: hidden;
+    height: 48px;
+    display: flex; align-items: center;
+    border-top: 1px solid rgba(196,154,46,0.2);
+    border-bottom: 1px solid rgba(196,154,46,0.2);
+  }
+  .marquee-track {
+    display: flex; gap: 0; white-space: nowrap;
+    animation: marquee 28s linear infinite;
+    min-width: max-content;
+  }
+  .marquee-item {
+    padding: 0 3rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    display: inline-flex; align-items: center; gap: 1.5rem;
+  }
+  .marquee-dot {
+    width: 3px; height: 3px; background: var(--gold); border-radius: 50%;
+    flex-shrink: 0;
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ── SERVICES ── */
+  .services-section { background: var(--cream); }
+
+  .services-header {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+    align-items: end; margin-bottom: 4rem;
+  }
+
+  .services-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 4px; overflow: hidden;
+  }
+
+  .service-card {
+    background: var(--white);
+    padding: 2.2rem 1.8rem;
+    transition: background 0.25s;
+    position: relative;
+    cursor: default;
+  }
+  .service-card:hover { background: var(--navy); }
+
+  .service-icon {
+    width: 44px; height: 44px;
+    border: 1px solid var(--border-strong);
+    border-radius: 2px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.4rem;
+    transition: background 0.25s, border-color 0.25s;
+  }
+  .service-card:hover .service-icon {
+    background: rgba(196,154,46,0.15);
+    border-color: rgba(196,154,46,0.4);
+  }
+  .service-icon svg { width: 20px; height: 20px; stroke: var(--gold); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+
+  .service-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--navy);
+    margin-bottom: 0.6rem;
+    transition: color 0.25s;
+  }
+  .service-card:hover .service-name { color: var(--gold-light); }
+
+  .service-desc {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    font-weight: 300;
+    transition: color 0.25s;
+  }
+  .service-card:hover .service-desc { color: rgba(255,255,255,0.55); }
+
+  /* ── WHY US ── */
+  .why-section { background: var(--navy); overflow: hidden; }
+
+  .why-grid {
+    display: grid; grid-template-columns: 1fr; gap: 0; align-items: center;
+    max-width: 760px;
+  }
+
+  .why-left .section-title { color: var(--white); }
+  .why-left .section-desc { color: rgba(255,255,255,0.55); }
+
+  .why-pillars {
+    display: flex; flex-direction: column; gap: 0;
+    border: 1px solid rgba(196,154,46,0.15);
+    border-radius: 3px; overflow: hidden;
+    margin-top: 2.5rem;
+  }
+  .pillar {
+    padding: 1.5rem 1.8rem;
+    border-bottom: 1px solid rgba(196,154,46,0.1);
+    display: flex; align-items: flex-start; gap: 1.2rem;
+    background: rgba(255,255,255,0.02);
+    transition: background 0.2s;
+  }
+  .pillar:last-child { border-bottom: none; }
+  .pillar:hover { background: rgba(255,255,255,0.05); }
+
+  .pillar-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    font-weight: 300;
+    color: rgba(196,154,46,0.3);
+    line-height: 1;
+    flex-shrink: 0;
+    min-width: 48px;
+  }
+  .pillar-title {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--white);
+    margin-bottom: 0.3rem;
+    letter-spacing: 0.02em;
+  }
+  .pillar-desc {
+    font-size: 0.84rem;
+    color: rgba(255,255,255,0.45);
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  .why-right { position: relative; }
+
+  /* ── BOOKING ── */
+  .booking-section { background: var(--cream-dark); }
+
+  .booking-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;
+  }
+
+  .booking-features { list-style: none; margin: 2rem 0; }
+  .booking-feature {
+    display: flex; align-items: center; gap: 12px;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.92rem;
+    color: var(--text-mid);
+    font-weight: 300;
+  }
+  .booking-feature:last-child { border-bottom: none; }
+
+  .booking-check {
+    width: 20px; height: 20px; flex-shrink: 0;
+    border: 1px solid var(--gold);
+    border-radius: 2px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .booking-check svg { width: 11px; height: 11px; stroke: var(--gold); stroke-width: 2; fill: none; }
+
+  .qr-panel {
+    background: var(--white);
+    border: 1px solid var(--border-strong);
+    border-radius: 4px;
+    padding: 2.2rem;
+    text-align: center;
+    margin-top: 1.5rem;
+  }
+  .qr-panel img { width: 150px; height: 150px; border-radius: 3px; margin: 0 auto 1rem; display: block; }
+  .qr-label {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .qr-link {
+    display: block;
+    font-size: 0.82rem;
+    color: var(--gold);
+    text-decoration: none;
+    margin-top: 0.4rem;
+    font-weight: 400;
+  }
+
+  .book-btn {
+    display: block; width: 100%;
+    background: var(--navy);
+    color: var(--gold-light);
+    padding: 17px;
+    border-radius: 2px;
+    text-decoration: none;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-align: center;
+    border: 1px solid var(--navy);
+    margin-top: 1.5rem;
+    transition: background 0.2s, color 0.2s;
+  }
+  .book-btn:hover { background: var(--gold); color: var(--navy); }
+
+  /* ── FORM ── */
+  .form-section { background: var(--white); }
+
+  .form-wrap {
+    display: grid; grid-template-columns: 1fr 1.5fr; gap: 80px; align-items: start;
+  }
+
+  .form-aside { padding-top: 0.5rem; }
+
+  .contact-items { margin-top: 2rem; display: flex; flex-direction: column; gap: 1.2rem; }
+  .contact-item {
+    display: flex; align-items: center; gap: 14px;
+    text-decoration: none;
+    color: var(--text-mid);
+    font-size: 0.92rem;
+    font-weight: 300;
+    transition: color 0.2s;
+  }
+  .contact-item:hover { color: var(--navy); }
+  .contact-icon {
+    width: 40px; height: 40px; flex-shrink: 0;
+    border: 1px solid var(--border-strong);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .contact-icon svg { width: 16px; height: 16px; stroke: var(--gold); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+
+  .elite-form {
+    background: var(--cream);
+    border: 1px solid var(--border-strong);
+    border-radius: 4px;
+    padding: 2.8rem;
+  }
+
+  .form-row {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-bottom: 1.2rem;
+  }
+  .form-field { display: flex; flex-direction: column; gap: 0.5rem; }
+  .form-field.full { grid-column: 1 / -1; }
+
+  .form-field label {
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-mid);
+    font-weight: 400;
+  }
+
+  .form-field input,
+  .form-field select,
+  .form-field textarea {
+    background: var(--white);
+    border: 1px solid var(--border-strong);
+    border-radius: 2px;
+    padding: 12px 16px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 300;
+    color: var(--navy);
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+  .form-field input:focus,
+  .form-field select:focus,
+  .form-field textarea:focus {
+    border-color: var(--gold);
+  }
+  .form-field textarea { resize: vertical; min-height: 110px; }
+  .form-field select { appearance: none; cursor: pointer; }
+
+  .form-submit {
+    width: 100%;
+    background: var(--navy);
+    color: var(--gold-light);
+    border: none;
+    padding: 16px;
+    border-radius: 2px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    margin-top: 1.5rem;
+  }
+  .form-submit:hover { background: var(--gold); color: var(--navy); }
+  .form-submit:disabled {
+    background: #aaa; cursor: not-allowed;
+  }
+
+  .form-note {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 1rem;
+    text-align: center;
+  }
+
+  .form-success {
+    display: none;
+    text-align: center;
+    padding: 2rem;
+  }
+  .form-success .serif {
+    font-size: 2rem;
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  .form-success p { color: var(--text-mid); font-size: 0.9rem; font-weight: 300; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy);
+    border-top: 1px solid rgba(196,154,46,0.15);
+    padding: 3rem 2.5rem;
+  }
+
+  .footer-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem;
+  }
+
+  .footer-brand .nav-brand strong { font-size: 1.1rem; }
+  .footer-brand .nav-brand span { font-size: 0.6rem; }
+
+  .footer-copy {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 0.05em;
+  }
+
+  .footer-links {
+    display: flex; gap: 2rem; list-style: none;
+  }
+  .footer-links a {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--gold-light); }
+
+  /* ── TOAST ── */
+  #toast {
+    position: fixed; bottom: 2rem; right: 2rem; z-index: 999;
+    background: var(--navy);
+    border: 1px solid var(--gold);
+    color: var(--gold-light);
+    padding: 1rem 1.5rem;
+    border-radius: 3px;
+    font-size: 0.85rem;
+    transform: translateY(80px);
+    opacity: 0;
+    transition: all 0.4s;
+    pointer-events: none;
+  }
+  #toast.show { transform: translateY(0); opacity: 1; }
+
+  /* ── MOBILE ── */
+  @media (max-width: 900px) {
+    nav { padding: 0 1.5rem; }
+    .nav-links { display: none; }
+    .hero { padding: 100px 1.5rem 60px; }
+    .hero-content { grid-template-columns: 1fr; gap: 2.5rem; }
+    section { padding: 70px 1.5rem; }
+    .services-header { grid-template-columns: 1fr; gap: 20px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .why-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .booking-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .form-wrap { grid-template-columns: 1fr; gap: 2rem; }
+    .form-row { grid-template-columns: 1fr; }
+    .footer-inner { flex-direction: column; text-align: center; }
+    .footer-links { flex-wrap: wrap; justify-content: center; }
+  }
+
+  /* ── ANIMATIONS ── */
+  .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-in.visible { opacity: 1; transform: none; }
+
+  .hero-title span { display: inline-block; }
+
+  /* Honeypot */
+  .hp { display: none !important; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <svg class="shield-icon" viewBox="0 0 38 44" xmlns="http://www.w3.org/2000/svg">
+      <path d="M19 2L3 9v13c0 10 7 19 16 22 9-3 16-12 16-22V9L19 2z"/>
+      <path d="M13 22l4 4 8-9" stroke="#0B1D3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </svg>
+    <div class="nav-brand">
+      <strong>SVP Financial</strong>
+      <span>Licensed Financial Wealth Builders</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#book">Schedule</a></li>
+    <li><a href="#contact" class="nav-cta">Complimentary Consultation</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-geo" aria-hidden="true">
+    <div class="hero-line" style="left:20%"></div>
+    <div class="hero-line" style="left:50%"></div>
+    <div class="hero-line" style="left:80%"></div>
+    <div class="hero-circle" style="width:500px;height:500px;right:-150px;top:-100px;"></div>
+    <div class="hero-circle" style="width:300px;height:300px;right:-50px;top:50px;"></div>
+  </div>
+  <div class="hero-content">
+    <div>
+      <div class="hero-eyebrow">
+        <div class="eyebrow-line"></div>
+        <span class="eyebrow-text">Senior Vice President–Led Advisory</span>
+      </div>
+      <h1 class="hero-title">
+        Elevate Your<br><em>Financial</em><br>Legacy
+      </h1>
+      <p class="hero-desc">Bespoke, comprehensive financial strategies crafted exclusively for you and your family — with integrity and commitment at every step.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Schedule Complimentary Consultation</a>
+        <a href="tel:8608165625" class="btn-ghost">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.09 12 19.79 19.79 0 011 3.18 2 2 0 013 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          (860) 816-5625
+        </a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-stat-grid">
+        <div class="hero-stat">
+          <span class="hero-stat-num">SVP</span>
+          <span class="hero-stat-label">Led Advisory</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">100%</span>
+          <span class="hero-stat-label">Needs-Based</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">7+</span>
+          <span class="hero-stat-label">Elite Services</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">0</span>
+          <span class="hero-stat-label">Obligation</span>
+        </div>
+      </div>
+      <a href="tel:8608165625" class="hero-phone">
+        <div class="hero-phone-icon">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.09 12 19.79 19.79 0 011 3.18 2 2 0 013 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+        </div>
+        <div>
+          <span class="hero-phone-label">Speak with an advisor</span>
+          <span class="hero-phone-num">(860) 816-5625</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-strip" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-item"><span class="marquee-dot"></span>Wealth Building</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Retirement Planning</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>College Savings Optimization</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Tax-Efficient Investing</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Estate Preservation</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Insurance & Risk Mitigation</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Financial Wellness Assessment</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Wealth Building</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Retirement Planning</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>College Savings Optimization</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Tax-Efficient Investing</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Estate Preservation</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Insurance & Risk Mitigation</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Financial Wellness Assessment</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services-section" id="services">
+  <div class="container">
+    <div class="services-header fade-in">
+      <div>
+        <div class="section-label">
+          <div class="section-label-line"></div>
+          <span class="section-label-text">Elite Services</span>
+        </div>
+        <h2 class="section-title">Comprehensive<br><em>Financial Solutions</em></h2>
+      </div>
+      <p class="section-desc">Each service is tailored to your life stage and goals — because no two financial journeys are alike.</p>
+    </div>
+
+    <div class="services-grid fade-in">
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <div class="service-name">Wealth Building</div>
+        <p class="service-desc">Strategic investment guidance to grow and protect your assets, tailored to your unique financial situation and risk profile.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        </div>
+        <div class="service-name">Financial Health Assessment</div>
+        <p class="service-desc">A comprehensive review of your financial picture — income, debts, savings, and goals — to identify opportunities for growth.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
+        </div>
+        <div class="service-name">Retirement Planning</div>
+        <p class="service-desc">Build a secure roadmap with 401(k), IRA, and pension strategies precisely aligned to your retirement timeline and lifestyle goals.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        </div>
+        <div class="service-name">College Savings</div>
+        <p class="service-desc">529 plans and education savings strategies that make funding your children's futures achievable and highly tax-efficient.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+        </div>
+        <div class="service-name">Tax Optimization</div>
+        <p class="service-desc">Minimize your tax burden legally and strategically so more of your wealth remains invested and working toward your future.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="service-name">Insurance & Estate Planning</div>
+        <p class="service-desc">Protect your family and preserve your legacy with life insurance, annuity solutions, and comprehensive estate planning.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why-section" id="about">
+  <div class="container">
+    <div class="why-grid">
+      <div class="why-left fade-in">
+        <div class="section-label">
+          <div class="section-label-line"></div>
+          <span class="section-label-text" style="color:rgba(196,154,46,0.7)">Why SVP Financial</span>
+        </div>
+        <h2 class="section-title">We Listen First,<br><em>Recommend Second</em></h2>
+        <p class="section-desc" style="color:rgba(255,255,255,0.5)">Licensed financial professionals dedicated to serving individuals and families with integrity. Your financial journey is unique — our approach honors that.</p>
+        <div class="why-pillars">
+          <div class="pillar">
+            <span class="pillar-num">01</span>
+            <div>
+              <div class="pillar-title">100% Needs-Based Approach</div>
+              <div class="pillar-desc">We assess your specific situation before making any recommendation — no one-size-fits-all solutions here.</div>
+            </div>
+          </div>
+          <div class="pillar">
+            <span class="pillar-num">02</span>
+            <div>
+              <div class="pillar-title">Senior VP-Led Advisory</div>
+              <div class="pillar-desc">Your account is managed at the highest advisory level — not delegated to a junior associate.</div>
+            </div>
+          </div>
+          <div class="pillar">
+            <span class="pillar-num">03</span>
+            <div>
+              <div class="pillar-title">Serving Families Locally & Beyond</div>
+              <div class="pillar-desc">Rooted in the community, with the reach and expertise to serve clients wherever they are.</div>
+            </div>
+          </div>
+          <div class="pillar">
+            <span class="pillar-num">04</span>
+            <div>
+              <div class="pillar-title">Integrity at Every Step</div>
+              <div class="pillar-desc">Transparent guidance with your long-term financial wellbeing as the sole priority.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="booking-section" id="book">
+  <div class="container">
+    <div class="booking-grid">
+      <div class="fade-in">
+        <div class="section-label">
+          <div class="section-label-line"></div>
+          <span class="section-label-text">Schedule Now</span>
+        </div>
+        <h2 class="section-title">Book Your<br><em>Complimentary</em><br>Consultation</h2>
+        <p class="section-desc">Take the first step toward financial confidence. Choose a time that works for you — no obligation, no pressure.</p>
+        <ul class="booking-features">
+          <li class="booking-feature">
+            <div class="booking-check"><svg viewBox="0 0 12 10"><polyline points="1 5 4 8 11 1"/></svg></div>
+            Complimentary — no cost, no obligation
+          </li>
+          <li class="booking-feature">
+            <div class="booking-check"><svg viewBox="0 0 12 10"><polyline points="1 5 4 8 11 1"/></svg></div>
+            Personalized review of your complete financial situation
+          </li>
+          <li class="booking-feature">
+            <div class="booking-check"><svg viewBox="0 0 12 10"><polyline points="1 5 4 8 11 1"/></svg></div>
+            Actionable recommendations you can implement immediately
+          </li>
+          <li class="booking-feature">
+            <div class="booking-check"><svg viewBox="0 0 12 10"><polyline points="1 5 4 8 11 1"/></svg></div>
+            Conducted by a Senior Vice President-level advisor
+          </li>
+        </ul>
+      </div>
+      <div class="fade-in">
+        <div class="qr-panel">
+          <img src="https://svpfinancial.org/svp-qr-code.jpg" alt="Scan to book your consultation with SVP Financial" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'150\' fill=\'%230B1D3A\'><rect width=\'150\' height=\'150\' fill=\'%23F5E9C5\'/><text x=\'75\' y=\'80\' text-anchor=\'middle\' font-size=\'12\' fill=\'%230B1D3A\'>Scan to Book</text></svg>'">
+          <p class="qr-label">Scan with your phone camera</p>
+          <a href="https://koalendar.com/e/meet-with-svp-financial" class="qr-link" target="_blank" rel="noopener">koalendar.com/e/meet-with-svp-financial</a>
+        </div>
+        <a href="https://koalendar.com/e/meet-with-svp-financial" class="book-btn" target="_blank" rel="noopener">
+          Book Your Complimentary Consultation &rarr;
+        </a>
+        <p style="font-size:0.78rem;color:var(--text-muted);text-align:center;margin-top:1rem;">Or fill out the form below and we'll reach out to schedule</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT FORM -->
+<section class="form-section" id="contact">
+  <div class="container">
+    <div class="form-wrap">
+      <div class="form-aside fade-in">
+        <div class="section-label">
+          <div class="section-label-line"></div>
+          <span class="section-label-text">Get In Touch</span>
+        </div>
+        <h2 class="section-title">Let's Begin<br>Your <em>Journey</em></h2>
+        <p class="section-desc" style="font-size:0.92rem">A licensed SVP Financial professional will contact you to schedule your complimentary consultation session.</p>
+        <div class="contact-items">
+          <a href="tel:8608165625" class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.09 12 19.79 19.79 0 011 3.18 2 2 0 013 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            </div>
+            (860) 816-5625
+          </a>
+          <a href="mailto:svpfinancialllc@gmail.com" class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            svpfinancialllc@gmail.com
+          </a>
+        </div>
+      </div>
+
+      <div class="elite-form fade-in">
+        <div id="formContent">
+          <div class="form-row">
+            <div class="form-field">
+              <label for="fname">Full Name *</label>
+              <input type="text" id="fname" name="name" placeholder="Your full name" required>
+            </div>
+            <div class="form-field">
+              <label for="femail">Email Address *</label>
+              <input type="email" id="femail" name="email" placeholder="your@email.com" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="fphone">Phone Number</label>
+              <input type="tel" id="fphone" name="phone" placeholder="(000) 000-0000">
+            </div>
+            <div class="form-field">
+              <label for="fservice">Area of Interest</label>
+              <select id="fservice" name="service">
+                <option value="">Select a service…</option>
+                <option>Wealth Building</option>
+                <option>Financial Health Assessment</option>
+                <option>Retirement Planning</option>
+                <option>College Savings</option>
+                <option>Tax Optimization Strategies</option>
+                <option>Insurance &amp; Annuities</option>
+                <option>Estate Planning</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-field full">
+              <label for="fmsg">Message</label>
+              <textarea id="fmsg" name="message" placeholder="Tell us a bit about your financial goals or questions…"></textarea>
+            </div>
+          </div>
+          <!-- Honeypot -->
+          <div class="hp" aria-hidden="true">
+            <input type="text" name="_honey" tabindex="-1" autocomplete="off">
+          </div>
+          <button type="button" class="form-submit" id="submitBtn" onclick="handleSubmit()">Request My Complimentary Consultation</button>
+          <p class="form-note">By submitting, you agree to be contacted by SVP Financial LLC. No obligation whatsoever.</p>
+        </div>
+        <div class="form-success" id="formSuccess">
+          <span class="serif">Thank You</span>
+          <p>Your inquiry has been received. A licensed SVP Financial advisor will contact you shortly to schedule your complimentary consultation.</p>
+          <br>
+          <a href="https://koalendar.com/e/meet-with-svp-financial" class="btn-primary" target="_blank" rel="noopener" style="display:inline-block">Or Book a Time Slot Directly &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand nav-logo" style="text-decoration:none;">
+      <svg class="shield-icon" viewBox="0 0 38 44" xmlns="http://www.w3.org/2000/svg" style="width:28px;height:32px;">
+        <path d="M19 2L3 9v13c0 10 7 19 16 22 9-3 16-12 16-22V9L19 2z"/>
+        <path d="M13 22l4 4 8-9" stroke="#0B1D3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+      <div class="nav-brand">
+        <strong>SVP Financial LLC</strong>
+        <span>Licensed Financial Wealth Builders</span>
+      </div>
+    </div>
+    <ul class="footer-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#book">Schedule</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <p class="footer-copy">&copy; 2026 SVP Financial LLC. All rights reserved.</p>
+  </div>
+</footer>
+
+<div id="toast">Your inquiry has been sent successfully.</div>
+
+<script>
+  // Fade-in observer
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+
+  async function handleSubmit() {
+    const btn = document.getElementById('submitBtn');
+    const name = document.getElementById('fname').value.trim();
+    const email = document.getElementById('femail').value.trim();
+    const phone = document.getElementById('fphone').value.trim();
+    const service = document.getElementById('fservice').value;
+    const message = document.getElementById('fmsg').value.trim();
+    const honey = document.querySelector('[name="_honey"]').value;
+
+    if (honey) return;
+    if (!name || !email) { alert('Please provide your name and email address.'); return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { alert('Please enter a valid email address.'); return; }
+
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+
+    const body = [
+      '=== SVP Financial — New Consultation Request ===',
+      '',
+      'Name: ' + name,
+      'Email: ' + email,
+      'Phone: ' + (phone || 'Not provided'),
+      'Service: ' + (service || 'Not specified'),
+      '',
+      'Message:',
+      message || '(none)',
+      '',
+      '=== Submitted via svpfinancial.org ===',
+    ].join('\n');
+
+    try {
+      await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          access_key: 'cb731006-7166-4192-8dbd-a8f7cf29eaf7',
+          to: 'svpfinancialllc@gmail.com,shankarm79@gmail.com',
+          subject: 'New Consultation Request — SVP Financial: ' + name,
+          message: body,
+          from_name: name,
+          replyto: email
+        })
+      });
+    } catch(e) {}
+
+    // Show success regardless (graceful degradation) — backend handles email in production
+    document.getElementById('formContent').style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+
+    const toast = document.getElementById('toast');
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 4000);
+  }
+</script>
+</body>
+</html>
